@@ -38,4 +38,6 @@ print(interface_output)
 print("=== SHOW VERSION ===")
 print(version_output)
 
+
+
 connection.disconnect()
