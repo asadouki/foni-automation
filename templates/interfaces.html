@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FONI Interface Lifecycle</title>
+</head>
+
+<body>
+
+    <h1>FONI Interface Lifecycle Application</h1>
+
+    {% for system in systems %}
+
+        <hr>
+
+        <h2>{{ system["name"] }}</h2>
+
+        <p><strong>Interface:</strong> {{ system["interface"] }}</p>
+
+        <h3>Create Result</h3>
+        <pre>{{ system.get("create_output", system.get("output", "No create output")) }}</pre>
+
+        <h3>State After Create</h3>
+        <pre>{{ system.get("after_create", system.get("verification", "No verification output")) }}</pre>
+
+        <h3>Remove Result</h3>
+        <pre>{{ system.get("remove_output", "No remove output") }}</pre>
+
+        <h3>State After Remove</h3>
+        <pre>{{ system.get("after_remove", "No removal verification output") }}</pre>
+
+        {% if system.get("error") %}
+            <h3>Error</h3>
+            <pre>{{ system["error"] }}</pre>
+        {% endif %}
+
+    {% endfor %}
+
+</body>
+</html>
